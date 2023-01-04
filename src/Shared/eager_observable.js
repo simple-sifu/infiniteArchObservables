@@ -1,4 +1,6 @@
 export default class EagerObservable {
+  // can't declare variables with let, or const
+  // otherwise it will show errors.
   _value = null;
   observers = [];
 
@@ -14,6 +16,7 @@ export default class EagerObservable {
     return this._value;
   }
 
+  // did not call notify but called function right away.
   subscribe = (func) => {
     this.observers.push(func);
     func(this);
